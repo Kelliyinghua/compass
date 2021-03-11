@@ -5,7 +5,9 @@ basic.forever(function () {
     degrees = input.compassHeading()
     if (input.buttonIsPressed(Button.B)) {
         basic.showString("" + (tempt))
-    } else {
+        basic.pause(500)
+        basic.showIcon(IconNames.Yes)
+    } else if (input.buttonIsPressed(Button.A)) {
         if (degrees < 45 || degrees >= 315) {
             basic.showString("N")
         } else if (degrees < 135) {
@@ -15,5 +17,7 @@ basic.forever(function () {
         } else {
             basic.showString("W")
         }
+    } else {
+        basic.showString("Click A / B")
     }
 })
